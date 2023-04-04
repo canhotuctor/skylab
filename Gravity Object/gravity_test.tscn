@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cce5e481btrms"]
+
+[ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_sjp3v"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lu7dq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1vphk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GravityObject" type="RigidBody3D" parent="."]
+mass = 1000.0
+script = ExtResource("1_sjp3v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject"]
+mesh = SubResource("SphereMesh_lu7dq")
+
+[node name="GravityObject2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54149, 0, 0)
+mass = 0.01
+linear_velocity = Vector3(0, 25, 0)
+script = ExtResource("1_sjp3v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject2"]
+mesh = SubResource("SphereMesh_1vphk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject2"]
+shape = SubResource("SphereShape3D_c0nvr")
+
+[node name="GravityObject3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135681, 0, 5.31255)
+mass = 0.01
+linear_velocity = Vector3(30, -5, 0)
+script = ExtResource("1_sjp3v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject3"]
+mesh = SubResource("SphereMesh_1vphk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject3"]
+shape = SubResource("SphereShape3D_c0nvr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.94308, -0.108838, -0.314253, 0.331926, 0.366704, 0.869111, 0.0206458, -0.923949, 0.381957, 0, 3.45511, 0)
