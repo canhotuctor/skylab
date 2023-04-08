@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cce5e481btrms"]
+[gd_scene load_steps=8 format=3 uid="uid://b88n08x7uxvvq"]
 
+[ext_resource type="Script" path="res://Gravity Object/SaveAndLoad.gd" id="1_8vo2m"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_sjp3v"]
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="2_dghiv"]
 [ext_resource type="Material" uid="uid://cqrx88mgexy55" path="res://media/centerShader.tres" id="2_o08yx"]
@@ -51,3 +52,24 @@ transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0,
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.94308, -0.108838, -0.314253, 0.331926, 0.366704, 0.869111, 0.0206458, -0.923949, 0.381957, 0, 3.45511, 0)
+
+[node name="SaveAndLoad" type="Node" parent="."]
+script = ExtResource("1_8vo2m")
+
+[node name="SaveButton" type="Button" parent="SaveAndLoad"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 51.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="SaveAndLoad"]
+offset_left = 20.0
+offset_top = 66.0
+offset_right = 66.0
+offset_bottom = 97.0
+text = "Load
+"
+
+[connection signal="pressed" from="SaveAndLoad/SaveButton" to="SaveAndLoad" method="_on_save_button_pressed"]
+[connection signal="pressed" from="SaveAndLoad/LoadButton" to="SaveAndLoad" method="_on_load_button_pressed"]
