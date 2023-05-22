@@ -3,19 +3,18 @@
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_6naoc"]
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="2_3hm5q"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_1vphk"]
+[sub_resource type="SphereMesh" id="SphereMesh_ectmq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
 
 [node name="GravityObject2" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54149, 0, 0)
 mass = 0.01
 linear_velocity = Vector3(0, 25, 0)
 script = ExtResource("1_6naoc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_3hm5q")
-mesh = SubResource("SphereMesh_1vphk")
+mesh = SubResource("SphereMesh_ectmq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_c0nvr")

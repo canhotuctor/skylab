@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b88n08x7uxvvq"]
+[gd_scene load_steps=14 format=3 uid="uid://b88n08x7uxvvq"]
 
 [ext_resource type="Script" path="res://Gravity Object/SaveAndLoad.gd" id="1_8vo2m"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_sjp3v"]
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="2_dghiv"]
 [ext_resource type="Material" uid="uid://cqrx88mgexy55" path="res://media/centerShader.tres" id="2_o08yx"]
+[ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="3_75so0"]
+[ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="5_nmpt3"]
+[ext_resource type="Texture2D" uid="uid://kiq0wamm23b6" path="res://UI_source/bolaDoGrey.jpeg" id="6_rypmk"]
+[ext_resource type="Script" path="res://InstantiateTest/DragNDropTest.gd" id="7_pn2q3"]
+[ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="9_0wtth"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lu7dq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_umsgl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_1vphk"]
 
@@ -14,30 +21,24 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="GravityObject" type="RigidBody3D" parent="."]
-mass = 1000.0
+mass = 100.0
 script = ExtResource("1_sjp3v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject"]
 material_override = ExtResource("2_o08yx")
 mesh = SubResource("SphereMesh_lu7dq")
 
-[node name="GravityObject2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54149, 0, 0)
-mass = 0.01
-linear_velocity = Vector3(0, 25, 0)
-script = ExtResource("1_sjp3v")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject"]
+shape = SubResource("SphereShape3D_umsgl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject2"]
-material_override = ExtResource("2_dghiv")
-mesh = SubResource("SphereMesh_1vphk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject2"]
-shape = SubResource("SphereShape3D_c0nvr")
+[node name="GravityObject2" parent="." instance=ExtResource("3_75so0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90822, 0, 0)
+linear_velocity = Vector3(0, 2.5, 0)
 
 [node name="GravityObject3" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135681, 0, 5.31255)
 mass = 0.01
-linear_velocity = Vector3(30, -5, 0)
+linear_velocity = Vector3(2.5, -1, 0)
 script = ExtResource("1_sjp3v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject3"]
@@ -48,22 +49,67 @@ mesh = SubResource("SphereMesh_1vphk")
 shape = SubResource("SphereShape3D_c0nvr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.94308, -0.108838, -0.314253, 0.331926, 0.366704, 0.869111, 0.0206458, -0.923949, 0.381957, 0, 3.45511, 0)
 
-[node name="SaveAndLoad" type="Node" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MineToolbar" type="NinePatchRect" parent="CanvasLayer/Interface"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -94.0
+offset_right = 351.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_nmpt3")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="DragNDropTest" type="TextureRect" parent="CanvasLayer/Interface/MineToolbar"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 104.0
+offset_top = 13.0
+offset_right = 154.0
+offset_bottom = 63.0
+texture = ExtResource("6_rypmk")
+expand_mode = 1
+script = ExtResource("7_pn2q3")
+
+[node name="SaveAndLoad" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8vo2m")
 
-[node name="SaveButton" type="Button" parent="SaveAndLoad"]
+[node name="SaveButton" type="Button" parent="CanvasLayer/SaveAndLoad"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 64.0
 offset_bottom = 51.0
 text = "Save"
 
-[node name="LoadButton" type="Button" parent="SaveAndLoad"]
+[node name="LoadButton" type="Button" parent="CanvasLayer/SaveAndLoad"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 66.0
 offset_right = 66.0
@@ -71,5 +117,22 @@ offset_bottom = 97.0
 text = "Load
 "
 
-[connection signal="pressed" from="SaveAndLoad/SaveButton" to="SaveAndLoad" method="_on_save_button_pressed"]
-[connection signal="pressed" from="SaveAndLoad/LoadButton" to="SaveAndLoad" method="_on_load_button_pressed"]
+[node name="AnalyticPause" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_0wtth")
+
+[node name="Pause Button" type="Button" parent="CanvasLayer/AnalyticPause"]
+offset_left = 1056.0
+offset_top = 17.0
+offset_right = 1111.0
+offset_bottom = 48.0
+text = "Pause"
+
+[connection signal="mouse_entered" from="CanvasLayer/Interface/MineToolbar/DragNDropTest" to="CanvasLayer/Interface/MineToolbar/DragNDropTest" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Interface/MineToolbar/DragNDropTest" to="CanvasLayer/Interface/MineToolbar/DragNDropTest" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/SaveAndLoad/SaveButton" to="CanvasLayer/SaveAndLoad" method="_on_save_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/SaveAndLoad/LoadButton" to="CanvasLayer/SaveAndLoad" method="_on_load_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/AnalyticPause/Pause Button" to="CanvasLayer/AnalyticPause" method="_on_pause_button_toggled"]

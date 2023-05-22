@@ -24,6 +24,6 @@ func gravity_force(body) -> Vector3:
 	#GmM/r²
 	var direction = position.direction_to(body.position)
 	var force = G * mass * body.mass / position.distance_squared_to(body.position)
-	print(force)
+	
 	return direction * force
 

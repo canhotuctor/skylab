@@ -15,8 +15,14 @@ run/main_scene="res://test_scene.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
+common/physics_ticks_per_second=180
+common/max_physics_steps_per_frame=100
 3d/default_gravity=0.0
 3d/default_gravity_vector=Vector3(0, 0, 0)
 3d/default_linear_damp=0.0

@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 const SAVE_PATH_PACKED_SCENE = "user://save_packed_scene.scn"
 
