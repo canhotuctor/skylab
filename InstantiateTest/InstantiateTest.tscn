@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://ejcvpmx2g8mf"]
-
-[node name="InstantiateTest" type="Node3D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -63,6 +63,7 @@ offset_right = 262.0
 offset_bottom = 22.0
 
 [node name="Vy" type="Label" parent="Panel/Velocidade"]
+layout_mode = 0
 offset_top = 52.0
 offset_right = 24.0
 offset_bottom = 78.0
@@ -84,6 +85,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Vz" type="Label" parent="Panel/Velocidade"]
+layout_mode = 0
 offset_top = 78.0
 offset_right = 24.0
 offset_bottom = 104.0
@@ -142,6 +144,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Y" type="Label" parent="Panel/Posição"]
+layout_mode = 0
 offset_top = 52.0
 offset_right = 24.0
 offset_bottom = 78.0
@@ -163,6 +166,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Z" type="Label" parent="Panel/Posição"]
+layout_mode = 0
 offset_top = 78.0
 offset_right = 24.0
 offset_bottom = 104.0

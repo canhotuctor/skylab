@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="3_75so0"]
 [ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="5_nmpt3"]
 [ext_resource type="Texture2D" uid="uid://kiq0wamm23b6" path="res://UI_source/bolaDoGrey.jpeg" id="6_rypmk"]
-[ext_resource type="Script" path="res://InstantiateTest/DragNDropTest.gd" id="7_pn2q3"]
+[ext_resource type="Script" path="res://UI_source/DragNDropTest.gd" id="7_sog4b"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="9_0wtth"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lu7dq"]
@@ -21,7 +21,7 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="GravityObject" type="RigidBody3D" parent="."]
-mass = 100.0
+mass = 10.0
 script = ExtResource("1_sjp3v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject"]
@@ -65,7 +65,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MineToolbar" type="NinePatchRect" parent="CanvasLayer/Interface"]
+[node name="MineToolbar" type="TextureRect" parent="CanvasLayer/Interface"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -79,10 +79,6 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("5_nmpt3")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
 
 [node name="DragNDropTest" type="TextureRect" parent="CanvasLayer/Interface/MineToolbar"]
 layout_mode = 1
@@ -93,7 +89,7 @@ offset_right = 154.0
 offset_bottom = 63.0
 texture = ExtResource("6_rypmk")
 expand_mode = 1
-script = ExtResource("7_pn2q3")
+script = ExtResource("7_sog4b")
 
 [node name="SaveAndLoad" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -125,6 +121,7 @@ offset_bottom = 40.0
 script = ExtResource("9_0wtth")
 
 [node name="Pause Button" type="Button" parent="CanvasLayer/AnalyticPause"]
+layout_mode = 0
 offset_left = 1056.0
 offset_top = 17.0
 offset_right = 1111.0

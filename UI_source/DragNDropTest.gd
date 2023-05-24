@@ -8,7 +8,6 @@ var dragMinDist = 100
 func _input(event):
 	if event is InputEventMouseButton:
 		dragging = (event.pressed and mouseInside)
-		print(dragging)
 		if(not dragging):
 			# Talvez mudar a condição!
 			if(position.distance_to(initialPosition) > dragMinDist):
@@ -17,6 +16,7 @@ func _input(event):
 				planeta.linear_velocity = (camera.project_position(Input.get_last_mouse_velocity(), 10) - camera.project_position(Vector2.ZERO, 10))
 				#planeta.linear_velocity = 0.01*Vector3(Input.get_last_mouse_velocity().x, -1*Input.get_last_mouse_velocity().y,0)
 				get_tree().current_scene.add_child(planeta)
+				planeta.owner = get_tree().current_scene #necessario para salvar posteriormente pela função PackedScene.pack()
 				
 			position = initialPosition
 			
