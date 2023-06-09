@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b88n08x7uxvvq"]
+[gd_scene load_steps=19 format=3 uid="uid://bk5pu8g3mgh1l"]
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_1bnp1"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="2_0vp48"]
@@ -12,9 +12,12 @@
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="10_w81p2"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="11_1rkaj"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_lu7dq"]
+[sub_resource type="SphereMesh" id="SphereMesh_24t8t"]
+radius = 2.0
+height = 4.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_umsgl"]
+radius = 2.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_1vphk"]
 
@@ -47,7 +50,7 @@ script = ExtResource("2_0vp48")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject"]
 material_override = ExtResource("3_43uye")
-mesh = SubResource("SphereMesh_lu7dq")
+mesh = SubResource("SphereMesh_24t8t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject"]
 shape = SubResource("SphereShape3D_umsgl")
