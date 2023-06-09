@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://3b02l864c76k"]
+[gd_scene load_steps=3 format=3 uid="uid://dvneothfogxrg"]
 
 [ext_resource type="Script" path="res://Janelinhas/Window.gd" id="1_hl0us"]
 [ext_resource type="PackedScene" uid="uid://dpayqv32n0hfo" path="res://Janelinhas/janelinha.tscn" id="2_eqcy7"]
