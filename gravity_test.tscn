@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="5_3bp6y"]
 [ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="6_o0ge0"]
 [ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="7_b371w"]
-[ext_resource type="Texture2D" uid="uid://kiq0wamm23b6" path="res://UI_source/bolaDoGrey.jpeg" id="8_xhlap"]
+[ext_resource type="Texture2D" uid="uid://dodcvc066alkq" path="res://UI_source/jupiter.png" id="8_7j1cw"]
 [ext_resource type="Script" path="res://UI_source/DragNDropTest.gd" id="9_3gnc7"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="10_w81p2"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="11_1rkaj"]
@@ -107,11 +107,11 @@ texture = ExtResource("7_b371w")
 [node name="DragNDropTest" type="TextureRect" parent="CanvasLayer/Interface/MineToolbar"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 104.0
-offset_top = 13.0
-offset_right = 154.0
-offset_bottom = 63.0
-texture = ExtResource("8_xhlap")
+offset_left = 105.0
+offset_top = 12.0
+offset_right = 155.0
+offset_bottom = 62.0
+texture = ExtResource("8_7j1cw")
 expand_mode = 1
 script = ExtResource("9_3gnc7")
 
