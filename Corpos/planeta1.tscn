@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8yyn6e5cc28d"]
+[gd_scene load_steps=6 format=3 uid="uid://c8yyn6e5cc28d"]
 
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_6naoc"]
-[ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="2_3hm5q"]
+[ext_resource type="Texture2D" uid="uid://dwelislbr7bsa" path="res://media/Gaseous4.png" id="2_qjed6"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ectmq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r77ve"]
+albedo_texture = ExtResource("2_qjed6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6jh0u"]
+material = SubResource("StandardMaterial3D_r77ve")
+radius = 1.0
+height = 2.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
+radius = 1.0
 
 [node name="GravityObject2" type="RigidBody3D"]
 mass = 0.01
@@ -13,8 +20,7 @@ linear_velocity = Vector3(0, 25, 0)
 script = ExtResource("1_6naoc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_3hm5q")
-mesh = SubResource("SphereMesh_ectmq")
+mesh = SubResource("SphereMesh_6jh0u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_c0nvr")
