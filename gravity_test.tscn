@@ -39,7 +39,7 @@ script = ExtResource("1_1bnp1")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="GravityObject" type="RigidBody3D" parent="."]
 mass = 10.0
