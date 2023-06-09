@@ -36,11 +36,12 @@ ambient_light_energy = 0.04
 
 [node name="CameraPivot" type="Node3D" parent="."]
 process_mode = 3
+transform = Transform3D(0.66262, 0.251238, -0.705559, 0, 0.942057, 0.335452, 0.748956, -0.222277, 0.624226, 0, 0, 0)
 script = ExtResource("1_1bnp1")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
 
 [node name="GravityObject" parent="." instance=ExtResource("2_4wllg")]
 mass = 100.0
@@ -51,9 +52,9 @@ mass = 0.1
 linear_velocity = Vector3(0, 2.5, 0)
 
 [node name="GravityObject3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135681, 0, 23.6968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136, 0, 15)
 mass = 0.01
-linear_velocity = Vector3(2.5, -1, 0)
+linear_velocity = Vector3(6, -2, 0)
 script = ExtResource("2_0vp48")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GravityObject3"]
