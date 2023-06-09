@@ -24,7 +24,8 @@ func _input(event):
 					var janela : InstantiateWindow = load("res://Janelinhas/InstantiateWindow.tscn").instantiate()
 					get_tree().current_scene.find_child("CanvasLayer").add_child(janela)
 					janela.owner = get_tree().current_scene.find_child("CanvasLayer")
-					pass
+					janela.okPressed.connect(_on_ok_pressed)
+					
 					
 			# Reset thumbnail position:
 			position = initialPosition
@@ -33,7 +34,14 @@ func _input(event):
 		position += event.relative
 		
 
-
+func _on_ok_pressed():
+	var planeta : GravityObject = load("res://Corpos/planeta1.tscn").instantiate()
+	planeta.position = camera.project_position(get_viewport().get_mouse_position(), 10) 
+	planeta.linear_velocity = (camera.project_position(Input.get_last_mouse_velocity(), 10) - camera.project_position(Vector2.ZERO, 10))
+	#planeta.linear_velocity = 0.01*Vector3(Input.get_last_mouse_velocity().x, -1*Input.get_last_mouse_velocity().y,0)
+	get_tree().current_scene.add_child(planeta)
+	planeta.owner = get_tree().current_scene #necessario para salvar posteriormente pela função PackedScene.pack()
+	
 func _on_mouse_exited():
 	mouseInside = false
 	

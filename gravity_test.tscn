@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_1bnp1"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="2_0vp48"]
-[ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_4wllg"]
+[ext_resource type="PackedScene" path="res://Corpos/sol.tscn" id="2_4wllg"]
 [ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="4_sg6rf"]
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="5_3bp6y"]
 [ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="6_o0ge0"]
