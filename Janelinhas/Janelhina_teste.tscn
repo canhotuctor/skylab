@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1pvehful1tju"]
 
-[ext_resource type="PackedScene" uid="uid://dpayqv32n0hfo" path="res://InstantiateTest/janelinha.tscn" id="1_fi35g"]
+[ext_resource type="PackedScene" uid="uid://dpayqv32n0hfo" path="res://Janelinhas/janelinha.tscn" id="1_fi35g"]
 
 [node name="Node" type="Node"]
 

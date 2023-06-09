@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://umx6034yepvn"]
+
+[ext_resource type="Script" path="res://Janelinhas/vx.gd" id="1_rxmfu"]
+
+[node name="Vx" type="Label"]
+offset_top = 26.0
+offset_right = 24.0
+offset_bottom = 52.0
+size_flags_horizontal = 4
+text = "Vx:"
+script = ExtResource("1_rxmfu")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -26.0
+offset_right = 170.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+min_value = -100.0
+step = 0.01
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 0
+offset_left = 196.0
+offset_right = 279.063
+offset_bottom = 31.0
+min_value = -100.0
+step = 0.01
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]

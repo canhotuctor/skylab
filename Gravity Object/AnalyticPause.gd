@@ -1,7 +1,4 @@
 extends Control
-@onready var paused_state = false
 
-
-func _on_pause_button_toggled(button_pressed):
-	paused_state = not paused_state
-	get_tree().paused = true
+func _on_pause_button_pressed():
+	get_tree().paused = not get_tree().paused 

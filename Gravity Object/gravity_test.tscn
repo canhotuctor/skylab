@@ -56,6 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0,
 transform = Transform3D(0.94308, -0.108838, -0.314253, 0.331926, 0.366704, 0.869111, 0.0206458, -0.923949, 0.381957, 0, 3.45511, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Interface" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -92,6 +93,7 @@ expand_mode = 1
 script = ExtResource("7_sog4b")
 
 [node name="SaveAndLoad" type="Control" parent="CanvasLayer"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8vo2m")
@@ -114,6 +116,7 @@ text = "Load
 "
 
 [node name="AnalyticPause" type="Control" parent="CanvasLayer"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -132,4 +135,4 @@ text = "Pause"
 [connection signal="mouse_exited" from="CanvasLayer/Interface/MineToolbar/DragNDropTest" to="CanvasLayer/Interface/MineToolbar/DragNDropTest" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/SaveAndLoad/SaveButton" to="CanvasLayer/SaveAndLoad" method="_on_save_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/SaveAndLoad/LoadButton" to="CanvasLayer/SaveAndLoad" method="_on_load_button_pressed"]
-[connection signal="toggled" from="CanvasLayer/AnalyticPause/Pause Button" to="CanvasLayer/AnalyticPause" method="_on_pause_button_toggled"]
+[connection signal="pressed" from="CanvasLayer/AnalyticPause/Pause Button" to="CanvasLayer/AnalyticPause" method="_on_pause_button_pressed"]
