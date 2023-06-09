@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://b88n08x7uxvvq"]
+[gd_scene load_steps=19 format=3 uid="uid://b88n08x7uxvvq"]
 
+[ext_resource type="Script" path="res://Tracking/CameraPivot.gd" id="1_56pav"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_sjp3v"]
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="2_dghiv"]
 [ext_resource type="Material" uid="uid://cqrx88mgexy55" path="res://media/centerShader.tres" id="2_o08yx"]
 [ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="3_75so0"]
 [ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="5_nmpt3"]
+[ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="6_dx6pg"]
 [ext_resource type="Texture2D" uid="uid://kiq0wamm23b6" path="res://UI_source/bolaDoGrey.jpeg" id="6_rypmk"]
 [ext_resource type="Script" path="res://UI_source/DragNDropTest.gd" id="7_sog4b"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="9_0wtth"]
@@ -18,7 +20,26 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
+panorama = ExtResource("6_dx6pg")
+filter = false
+
+[sub_resource type="Sky" id="Sky_wiiuw"]
+sky_material = SubResource("PanoramaSkyMaterial_vcrrc")
+
+[sub_resource type="Environment" id="Environment_4foyh"]
+background_mode = 2
+sky = SubResource("Sky_wiiuw")
+
 [node name="Node3D" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+process_mode = 3
+script = ExtResource("1_56pav")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
 
 [node name="GravityObject" type="RigidBody3D" parent="."]
 mass = 10.0
@@ -48,12 +69,11 @@ mesh = SubResource("SphereMesh_1vphk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject3"]
 shape = SubResource("SphereShape3D_c0nvr")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.94308, -0.108838, -0.314253, 0.331926, 0.366704, 0.869111, 0.0206458, -0.923949, 0.381957, 0, 3.45511, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4foyh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

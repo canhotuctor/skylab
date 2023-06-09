@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bd17t1sspsi8k"]
+[gd_scene load_steps=21 format=3 uid="uid://bd17t1sspsi8k"]
 
+[ext_resource type="Script" path="res://Tracking/CameraPivot.gd" id="1_1d76t"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_3ccl3"]
 [ext_resource type="Material" uid="uid://cqrx88mgexy55" path="res://media/centerShader.tres" id="2_x4yn4"]
 [ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="3_rlb0s"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" path="res://Gravity Object/SaveAndLoad.gd" id="8_rathf"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="9_tgvem"]
 [ext_resource type="Script" path="res://Tracking/LabelTrackerExample.gd" id="11_0wmr1"]
+[ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="13_ccio3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lu7dq"]
 
@@ -20,7 +22,25 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0hli6"]
+panorama = ExtResource("13_ccio3")
+filter = false
+
+[sub_resource type="Sky" id="Sky_0qq3b"]
+sky_material = SubResource("PanoramaSkyMaterial_0hli6")
+
+[sub_resource type="Environment" id="Environment_0p4ud"]
+background_mode = 2
+sky = SubResource("Sky_0qq3b")
+
 [node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("1_1d76t")
 
 [node name="GravityObject" type="RigidBody3D" parent="."]
 mass = 10.0
@@ -54,10 +74,6 @@ mesh = SubResource("SphereMesh_1vphk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GravityObject3"]
 shape = SubResource("SphereShape3D_c0nvr")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.979589, 0.20101, 0, -0.20101, 0.979589, 0, 2.35527, 11.7819)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.94308, -0.108838, -0.314253, 0.331926, 0.366704, 0.869111, 0.0206458, -0.923949, 0.381957, 0, 3.45511, 0)
@@ -142,6 +158,9 @@ text = "Pause"
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("11_0wmr1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0p4ud")
 
 [connection signal="mouse_entered" from="CanvasLayer/Interface/MineToolbar/DragNDropTest" to="CanvasLayer/Interface/MineToolbar/DragNDropTest" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Interface/MineToolbar/DragNDropTest" to="CanvasLayer/Interface/MineToolbar/DragNDropTest" method="_on_mouse_exited"]
