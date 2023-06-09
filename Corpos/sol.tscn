@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dksa8p1sbkj5j"]
+
+[ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_025fj"]
+[ext_resource type="Material" uid="uid://cqrx88mgexy55" path="res://media/centerShader.tres" id="2_5ipt5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_24t8t"]
+material = ExtResource("2_5ipt5")
+radius = 2.0
+height = 4.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_umsgl"]
+radius = 2.0
+
+[node name="Sol" type="RigidBody3D"]
+mass = 10.0
+script = ExtResource("1_025fj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_24t8t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_umsgl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 16.0
+omni_range = 100000.0

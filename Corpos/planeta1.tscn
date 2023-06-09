@@ -14,7 +14,7 @@ height = 2.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
 radius = 1.0
 
-[node name="GravityObject2" type="RigidBody3D"]
+[node name="Planeta1" type="RigidBody3D"]
 mass = 0.01
 linear_velocity = Vector3(0, 25, 0)
 script = ExtResource("1_6naoc")

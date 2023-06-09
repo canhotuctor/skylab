@@ -5,6 +5,5 @@
 [resource]
 albedo_color = Color(0.992157, 0.72549, 0.176471, 1)
 albedo_texture = ExtResource("1_pwyhr")
-emission = Color(0.568627, 0.290196, 0.0431373, 1)
-emission_energy_multiplier = 0.28
+emission_enabled = true
 emission_texture = ExtResource("1_pwyhr")
