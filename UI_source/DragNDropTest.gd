@@ -22,7 +22,7 @@ func _input(event):
 				else:
 					# Analytic instantiate:
 					var janela : InstantiateWindow = load("res://Janelinhas/InstantiateWindow.tscn").instantiate()
-					get_tree().current_scene.add_child(janela)
+					get_tree().current_scene.find_child("CanvasLayer").add_child(janela)
 					janela.owner = get_tree().current_scene.find_child("CanvasLayer")
 					pass
 					
