@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpomwl56g8js4"]
 
-[ext_resource type="Script" path="res://SaveAndLoadTest/savenloadtest.gd" id="1_dd3uh"]
+[ext_resource type="Script" path="res://SaveAndLoad/SaveAndLoad.gd" id="1_dd3uh"]
 
 [node name="SaveAndLoad" type="Control"]
 custom_minimum_size = Vector2(300, 400)
