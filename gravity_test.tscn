@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_1bnp1"]
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="2_0vp48"]
-[ext_resource type="PackedScene" path="res://Corpos/sol.tscn" id="2_4wllg"]
+[ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_4wllg"]
 [ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="4_sg6rf"]
 [ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="5_3bp6y"]
 [ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="6_o0ge0"]
@@ -106,17 +106,24 @@ script = ExtResource("9_3gnc7")
 [node name="AnalyticPause" type="Control" parent="CanvasLayer"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
 offset_bottom = 40.0
+grow_horizontal = 0
 script = ExtResource("10_w81p2")
 
 [node name="Pause Button" type="Button" parent="CanvasLayer/AnalyticPause"]
-layout_mode = 0
-offset_left = 1056.0
-offset_top = 17.0
-offset_right = 1111.0
-offset_bottom = 48.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_top = 12.0
+offset_right = -26.0
+offset_bottom = 43.0
+grow_horizontal = 0
 text = "Pause"
 
 [node name="SaveAndLoad" parent="CanvasLayer" instance=ExtResource("11_1rkaj")]
