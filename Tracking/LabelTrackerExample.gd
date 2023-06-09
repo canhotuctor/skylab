@@ -9,5 +9,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var tracker = $"../../GravityObject2/Tracker"
-	if tracker:
+	if tracker and tracker.history.size() > 0:
 		text = str(tracker.history[-1])

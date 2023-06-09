@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Skylab"
+run/main_scene="res://Gravity Object/gravity_test.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,7 +21,7 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
-common/physics_ticks_per_second=180
+common/physics_ticks_per_second=100
 common/max_physics_steps_per_frame=100
 3d/default_gravity=0.0
 3d/default_gravity_vector=Vector3(0, 0, 0)
