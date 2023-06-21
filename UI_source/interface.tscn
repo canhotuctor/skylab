@@ -22,10 +22,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 9.0
-offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_atktd")
@@ -133,45 +129,29 @@ offset_right = 60.0
 offset_bottom = 60.0
 texture = ExtResource("12_i5dud")
 
-[node name="AnalyticPause" type="Control" parent="."]
+[node name="AnalyticPause" type="HBoxContainer" parent="."]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -56.0
+offset_top = 32.0
+offset_right = -16.0
+offset_bottom = 72.0
 grow_horizontal = 0
+theme_override_constants/separation = 16
 script = ExtResource("12_cqf1f")
 
-[node name="Pause Button" type="Button" parent="AnalyticPause"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -81.0
-offset_top = 12.0
-offset_right = -26.0
-offset_bottom = 43.0
-grow_horizontal = 0
-text = "Pause"
-
 [node name="TimeScale" type="HSlider" parent="AnalyticPause"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -208.0
-offset_top = 12.0
-offset_right = -87.0
-offset_bottom = 40.0
-grow_horizontal = 0
-min_value = 0.125
-max_value = 8.0
-step = 0.125
+custom_minimum_size = Vector2(121, 28)
+layout_mode = 2
+focus_mode = 0
+min_value = 0.1
+max_value = 10.0
+step = 0.1
 value = 1.0
 exp_edit = true
-scrollable = false
 tick_count = 9
 ticks_on_borders = true
 script = ExtResource("14_ivtp7")
@@ -183,6 +163,10 @@ offset_right = 87.0
 offset_bottom = 54.0
 text = "Time Scale: "
 
+[node name="Pause Button" type="Button" parent="AnalyticPause"]
+layout_mode = 2
+text = "Pause"
+
 [node name="SaveAndLoad" parent="." instance=ExtResource("13_eff2y")]
 layout_mode = 1
 offset_left = -9.0
@@ -191,4 +175,3 @@ offset_right = 291.0
 offset_bottom = 391.0
 
 [connection signal="pressed" from="AnalyticPause/Pause Button" to="AnalyticPause" method="_on_pause_button_pressed"]
-[connection signal="value_changed" from="AnalyticPause/TimeScale" to="AnalyticPause" method="_on_time_scale_value_changed"]
