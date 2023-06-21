@@ -16,6 +16,7 @@ radius = 1.0
 
 [node name="Planeta1" type="RigidBody3D"]
 linear_velocity = Vector3(0, 25, 0)
+angular_velocity = Vector3(0, 0.349066, 0)
 script = ExtResource("1_6naoc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
