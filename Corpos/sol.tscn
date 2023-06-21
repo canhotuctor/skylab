@@ -12,7 +12,7 @@ height = 4.0
 radius = 2.0
 
 [node name="Sol" type="RigidBody3D"]
-mass = 10.0
+mass = 100.0
 script = ExtResource("1_025fj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

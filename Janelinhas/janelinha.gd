@@ -1,6 +1,6 @@
 extends Control
-signal okPressed(position:Vector3, velocity:Vector3)
-signal posicUpdate(position:Vector3)
+signal okPressed(pos:Vector3, vel:Vector3)
+signal posicUpdate(pos:Vector3)
 var posic : Vector3 = Vector3(0,0,0)
 var veloc : Vector3 = Vector3(0,0,0)
 
