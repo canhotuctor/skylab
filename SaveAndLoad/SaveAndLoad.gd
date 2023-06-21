@@ -27,7 +27,7 @@ func _on_item_activated(index):
 	get_tree().change_scene_to_file(save_path)
 
 
-func _on_item_selected(index):
+func _on_item_selected(_index):
 	erase_button.disabled = false
 
 
@@ -47,5 +47,5 @@ func _on_save_button_pressed():
 	refresh()
 
 
-func _on_line_edit_text_changed(new_text):
+func _on_line_edit_text_changed(_new_text):
 	save_button.disabled = (text_edit.text.length() == 0)

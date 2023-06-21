@@ -17,15 +17,12 @@ func _input(event):
 		if(not dragging):
 			if(position.distance_to(initialPosition) > dragMinDist):
 				querry_delete = true
-				var from = camera.project_ray_origin(event.position)
-				var to = from + camera.project_ray_normal(event.position) * RAY_LENGTH
 			# Reset thumbnail position:
 			position = initialPosition
-			
 	if event is InputEventMouseMotion and dragging:
 		position += event.relative
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if querry_delete:
 		var space_state = camera.get_world_3d().direct_space_state
 		var mousepos = get_viewport().get_mouse_position()
