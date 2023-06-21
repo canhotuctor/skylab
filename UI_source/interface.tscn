@@ -151,7 +151,6 @@ text = "Pause"
 
 [node name="SaveAndLoad" parent="." instance=ExtResource("13_eff2y")]
 layout_mode = 1
-offset_right = 300.0
 offset_bottom = 400.0
 
 [connection signal="pressed" from="AnalyticPause/Pause Button" to="AnalyticPause" method="_on_pause_button_pressed"]

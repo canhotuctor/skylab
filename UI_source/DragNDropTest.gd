@@ -3,7 +3,7 @@ var dragging = false
 var mouseInside = false
 @onready var initialPosition = position
 var dragMinDist = 100
-@onready var camera : Camera3D = %Camera3D
+@onready var camera : Camera3D = get_viewport().get_camera_3d() 
 @onready var pauseButton = $"../../AnalyticPause"
 @export_file('*.tscn') var planet_to_load : String
 
