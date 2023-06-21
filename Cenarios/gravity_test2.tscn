@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dic8mtgfhdjc4"]
+[gd_scene load_steps=23 format=3 uid="uid://dic8mtgfhdjc4"]
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_uivi6"]
 [ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_kb70h"]
@@ -13,10 +13,159 @@
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="10_cwwdn"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="11_ft4fd"]
 
+[sub_resource type="GDScript" id="GDScript_d487t"]
+script/source = "extends Node3D
+class_name TrailRenderer
+
+#############################
+# EXPORT PARAMS
+#############################
+# width
+@export var width: float = 0.5
+@export var width_curve: Curve
+# length
+@export var max_points := 100
+@export var material: Material
+# show or hide
+@export var render: bool = true
+
+
+#############################
+# PARAMS
+#############################
+@onready var half_width = width * 0.5
+var points := []
+
+
+
+
+#############################
+# OVERRIDE FUNCTIONS
+#############################
+func _ready() -> void:
+	var node = Node.new()
+	node.name = \"Node\"
+	add_child(node)
+	
+	var render = MeshInstance3D.new() # Mudou de MeshInstance para MeshInstance3D
+	render.name = \"Render\"
+	node.add_child(render)
+
+
+func _process(delta: float) -> void:
+	if render:
+		# add new point and render
+		add_point()
+		_draw_trail()
+	else:
+		# slowly hide the trail
+		if points.size() > 0:
+			var last_point = points.pop_back()
+			last_point.queue_free()
+
+
+#############################
+# API
+#############################
+func add_point() -> void:
+	var new_point = Marker3D.new() # Mudou de Position3D para Marker3D
+	new_point.transform.origin = self.global_transform.origin # Mudou de translation para transform.origin
+	new_point.rotation = self.global_transform.basis.get_euler()
+	points.insert(0, new_point)
+	if points.size() > max_points:
+		var last_point = points.pop_back()
+		last_point.queue_free()
+
+
+func _draw_trail() -> void:
+	if points.size() < 2:
+		return
+	# create surface tool
+	var st = SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	# draw triangles
+	for i in range(points.size() - 1):
+		_points_to_rect(st, points[i], points[i + 1], i)
+	# commit
+	st.generate_normals()
+#	st.generate_tangents()
+	$Node/Render.mesh = st.commit()
+	$Node/Render.set_surface_material(0, material)
+
+func _points_to_rect(st: SurfaceTool, p1: Marker3D, p2: Marker3D, idx: float) -> void: # Mudou de Position3D para Marker3D nos parâmetros
+	var num_points = points.size() - 1
+	
+	var offset1 = idx / num_points
+	var mod1 = half_width * width_curve.get_value(offset1, false) # Mudou de interpolate para get_value e adicionou o argumento loop_wrap
+	
+	var v1 = p1.transform.origin + p1.transform.basis.x * mod1 # Mudou de translation para transform.origin
+	var uv1 = Vector2(0, offset1)
+	
+	var v2 = p1.transform.origin - p1.transform.basis.x * mod1 # Mudou de translation para transform.origin
+	var uv2 = Vector2(1, offset1)
+	
+	var offset2 = (idx + 1) / num_points
+	var mod2 = half_width * width_curve.get_value(offset2, false) # Mudou de interpolate para get_value e adicionou o argumento loop_wrap
+	
+	var v3 = p2.transform.origin + p2.transform.basis.x * mod2 # Mudou de translation para transform.origin
+	var uv3 = Vector2(0, offset2)
+	
+	var v4 = p2.transform.origin - p2.transform.basis.x * mod2 # Mudou de translation para transform.origin
+	var uv4 = Vector2(1, offset2)
+	
+	st.add_uv(uv1)
+	st.add_vertex(v1)
+	st.add_uv(uv2)
+	st.add_vertex(v2)
+	st.add_uv(uv3)
+	st.add_vertex(v3)
+	
+	st.add_uv(uv3)
+	st.add_vertex(v3)
+	st.add_uv(uv2)
+	st.add_vertex(v2)
+	st.add_uv(uv1)
+	st.add_vertex(v1)
+	
+	st.add_uv(uv3)
+	st.add_vertex(v3)
+	st.add_uv(uv4)
+	st.add_vertex(v4)
+	st.add_uv(uv2)
+	st.add_vertex(v2)
+	
+	st.add_uv(uv2)
+	st.add_vertex(v2)
+	st.add_uv(uv4)
+	st.add_vertex(v4)
+	st.add_uv(uv3)
+	st.add_vertex(v3)
+
+
+
+"
+
 [sub_resource type="SphereMesh" id="SphereMesh_1vphk"]
 material = ExtResource("5_d1wt7")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
+
+[sub_resource type="Gradient" id="Gradient_nh6m4"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.369748, 0.584034, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 0.820879, 1, 0.390393, 0.937611, 0.449649, 0.948988, 0.604681, 0.843186, 0.000662472, 0.861032, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bj44f"]
+gradient = SubResource("Gradient_nh6m4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7pyk"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture1D_bj44f")
+
+[sub_resource type="Curve" id="Curve_su4bn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.218182), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
 panorama = ExtResource("6_x4oj4")
@@ -45,12 +194,17 @@ unique_name_in_owner = true
 transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
 
 [node name="GravityObject" parent="." instance=ExtResource("2_kb70h")]
-mass = 100.0
 
 [node name="GravityObject2" parent="." instance=ExtResource("3_vnnaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6721, 0, 0)
 mass = 0.1
 linear_velocity = Vector3(0, 2.5, 0)
+script = SubResource("GDScript_d487t")
+width = 0.5
+width_curve = null
+max_points = 100
+material = null
+render = true
 
 [node name="GravityObject3" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136, 0, 15)
@@ -65,7 +219,14 @@ mesh = SubResource("SphereMesh_1vphk")
 shape = SubResource("SphereShape3D_c0nvr")
 
 [node name="Trail_3d" type="MeshInstance3D" parent="GravityObject3"]
+material_override = SubResource("StandardMaterial3D_a7pyk")
 script = ExtResource("6_v0ant")
+distance = 1.202
+segments = 899
+lifetime = 0.86
+base_width = 5558.32
+tiled_texture = true
+width_profile = SubResource("Curve_su4bn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4foyh")

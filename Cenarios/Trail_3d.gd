@@ -13,8 +13,8 @@ enum {X, Y, Z}
 @export var width_profile: Curve
 @export_range(0, 3) var smoothing_iterations: int= 0
 @export_range(0, 0.5) var smoothing_ratio: float = 0.25
-@export_enum(VIEW, NORMAL, OBJECT) var alignment: int = VIEW
-@export_enum(X, Y, Z) var axe: int = Y
+@export_enum("VIEW", "NORMAL", "OBJECT") var alignment: int = 0
+@export_enum("X", "Y", "Z") var axe: int = 1
 
 
 var points := []
@@ -84,7 +84,7 @@ func _prepare_geometry(point_prev :Point, point :Point, half_width :float, facto
 
 	var width = half_width
 	if width_profile:
-		width = half_width * width_profile.interpolate(factor)
+		width = half_width * width_profile.sample(factor)
 
 	var p1 = point.transform.origin-normal*width
 	var p2 = point.transform.origin+normal*width
