@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dt8avx7bnevla"]
+[gd_scene load_steps=23 format=3 uid="uid://dic8mtgfhdjc4"]
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_uivi6"]
 [ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_kb70h"]
@@ -454,7 +454,7 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.04
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="CameraPivot" type="Node3D" parent="."]
 process_mode = 3

@@ -8,7 +8,7 @@ var querry_delete = false
 @onready var initialPosition = position
 var dragMinDist = 100
 @onready var camera : Camera3D = %Camera3D
-@onready var pauseButton = $"../../../AnalyticPause"
+@onready var pauseButton = $"../../AnalyticPause"
 @export_file('*.tscn') var planet_to_load : String
 
 func _input(event):
