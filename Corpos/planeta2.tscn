@@ -9,7 +9,7 @@ material = ExtResource("2_ooj5q")
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
 
 [node name="GravityObject3" type="RigidBody3D"]
-mass = 0.01
+mass = 10.0
 linear_velocity = Vector3(6, -2, 0)
 angular_velocity = Vector3(0, 6.28319, 0)
 script = ExtResource("1_i7gxl")
