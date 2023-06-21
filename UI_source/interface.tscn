@@ -33,10 +33,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -327.0
-offset_top = -100.0
-offset_right = 368.0
-offset_bottom = -29.0
+offset_left = -347.5
+offset_top = -87.0
+offset_right = 347.5
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_t8oau")
@@ -167,9 +167,6 @@ text = "Pause"
 
 [node name="SaveAndLoad" parent="." instance=ExtResource("13_eff2y")]
 layout_mode = 1
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 291.0
-offset_bottom = 391.0
+offset_bottom = 400.0
 
 [connection signal="pressed" from="AnalyticPause/Pause Button" to="AnalyticPause" method="_on_pause_button_pressed"]
