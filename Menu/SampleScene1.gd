@@ -3,4 +3,4 @@ extends Button
 
 
 func _on_pressed():
-	get_tree().change_scene_to_file("res://gravity_test.tscn")
+	get_tree().change_scene_to_file("res://Cenarios/default.tscn")
