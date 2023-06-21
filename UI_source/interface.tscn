@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dj3g0d4yrt5og"]
+[gd_scene load_steps=17 format=3 uid="uid://dj3g0d4yrt5og"]
 
 [ext_resource type="Script" path="res://Interface.gd" id="1_atktd"]
 [ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="2_t8oau"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://betnlyoxqg8x7" path="res://UI_source/sairpng.png" id="12_i5dud"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="13_eff2y"]
 [ext_resource type="Script" path="res://UI_source/TimeScale.gd" id="14_ivtp7"]
+[ext_resource type="Script" path="res://UI_source/FPS.gd" id="16_5bpiu"]
 
 [node name="Interface" type="Control"]
 process_mode = 3
@@ -135,10 +136,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -56.0
-offset_top = 32.0
-offset_right = -16.0
-offset_bottom = 72.0
+offset_left = -195.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 43.0
 grow_horizontal = 0
 theme_override_constants/separation = 16
 script = ExtResource("12_cqf1f")
@@ -169,9 +170,21 @@ text = "Pause"
 
 [node name="SaveAndLoad" parent="." instance=ExtResource("13_eff2y")]
 layout_mode = 1
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 291.0
-offset_bottom = 391.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 303.0
+offset_bottom = 403.0
+
+[node name="FPS" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -26.0
+offset_right = 31.0
+grow_vertical = 0
+text = "FPS"
+script = ExtResource("16_5bpiu")
 
 [connection signal="pressed" from="AnalyticPause/Pause Button" to="AnalyticPause" method="_on_pause_button_pressed"]
