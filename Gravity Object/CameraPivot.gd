@@ -17,7 +17,7 @@ func _process(delta):
 		rotation.x += (-delta)/Engine.time_scale
 	if Input.is_action_pressed("ui_down"):
 		rotation.x += (delta)/Engine.time_scale
-	if Input.is_action_just_released("scroll_up"):
-		camera.position.z *= exp(-delta*10)
-	if Input.is_action_just_released("scroll_down"):
-		camera.position.z *= exp(delta*10)
+	if Input.is_action_just_released("scroll_up") and camera.position.z > 1:
+		camera.position.z *= exp(-delta*10/Engine.time_scale)
+	if Input.is_action_just_released("scroll_down") and camera.position.z < 10000:
+		camera.position.z *= exp(delta*10/Engine.time_scale)

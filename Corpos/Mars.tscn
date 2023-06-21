@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dch0n8nyb3h5o"]
+[gd_scene load_steps=6 format=3 uid="uid://cix264b2i008k"]
 
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_k7ms4"]
 [ext_resource type="Texture2D" uid="uid://buol5lf3062rm" path="res://media/mars.jpg" id="2_o7wpw"]
@@ -15,6 +15,7 @@ height = 0.66
 radius = 0.33
 
 [node name="Mars" type="RigidBody3D"]
+mass = 8.0
 script = ExtResource("1_k7ms4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
