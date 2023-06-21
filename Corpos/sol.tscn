@@ -9,10 +9,10 @@ radius = 2.0
 height = 4.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_umsgl"]
-radius = 2.0
+radius = 1.0
 
 [node name="Sol" type="RigidBody3D"]
-mass = 100.0
+mass = 1600.0
 script = ExtResource("1_025fj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

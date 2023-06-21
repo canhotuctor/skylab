@@ -30,7 +30,7 @@ ambient_light_energy = 0.5
 
 [node name="CameraPivot" type="Node3D" parent="."]
 process_mode = 3
-transform = Transform3D(0.66262, 0.251238, -0.705559, 0, 0.942057, 0.335452, 0.748956, -0.222277, 0.624226, 0, 0, 0)
+transform = Transform3D(0.638768, 0.305565, -0.70612, 0, 0.917754, 0.397148, 0.7694, -0.253685, 0.586232, 0, 0, 0)
 script = ExtResource("1_1bnp1")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
@@ -38,12 +38,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
 
 [node name="Sol" parent="." instance=ExtResource("2_4wllg")]
+mass = 1600.0
 
 [node name="GravityObject2" parent="." instance=ExtResource("4_sg6rf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6721, 0, 0)
-linear_velocity = Vector3(0, 2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+linear_velocity = Vector3(15.19, 2.5, 0)
 
 [node name="GravityObject3" parent="." instance=ExtResource("4_rjq68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+linear_velocity = Vector3(24.8, -0.5, 0.3)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4foyh")

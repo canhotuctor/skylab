@@ -36,14 +36,14 @@ transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.
 
 [node name="Sol" parent="." instance=ExtResource("2_ldxli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4, 4.862, 0)
-linear_velocity = Vector3(2.503, 2.322, 0)
+linear_velocity = Vector3(10.012, 9.288, 0)
 
 [node name="Sol2" parent="." instance=ExtResource("2_ldxli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4, -4.862, 0)
-linear_velocity = Vector3(2.503, 2.322, 0)
+linear_velocity = Vector3(10.012, 9.288, 0)
 
 [node name="Sol3" parent="." instance=ExtResource("2_ldxli")]
-linear_velocity = Vector3(-5.007, -4.643, 0)
+linear_velocity = Vector3(-20.028, -18.572, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4foyh")
