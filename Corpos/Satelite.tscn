@@ -12,10 +12,11 @@ albedo_texture = ExtResource("3_78r1l")
 
 [node name="Satelite" type="RigidBody3D"]
 mass = 0.01
+can_sleep = false
 script = ExtResource("1_qtu1b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -833.782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("2_j08xw")
 surface_material_override/0 = SubResource("StandardMaterial3D_iw8yp")
 script = ExtResource("3_jd171")

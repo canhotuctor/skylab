@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dj3g0d4yrt5og"]
+[gd_scene load_steps=15 format=3 uid="uid://dj3g0d4yrt5og"]
 
 [ext_resource type="Script" path="res://Interface.gd" id="1_atktd"]
 [ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="2_t8oau"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4d8w0jm2s63m" path="res://icon.svg" id="10_jei5l"]
 [ext_resource type="PackedScene" path="res://UI_source/deleter.tscn" id="11_6yqv2"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="12_cqf1f"]
+[ext_resource type="Texture2D" uid="uid://betnlyoxqg8x7" path="res://UI_source/sairpng.png" id="12_i5dud"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="13_eff2y"]
 
 [node name="Interface" type="Control"]
@@ -85,7 +86,7 @@ offset_top = 21.0
 offset_right = 346.0
 offset_bottom = 56.0
 texture = ExtResource("8_cnna6")
-planet_to_load = "res://Corpos/sol.tscn"
+planet_to_load = "res://Corpos/Mars.tscn"
 
 [node name="DragNDropTest6" parent="MineToolbar" instance=ExtResource("3_qgboe")]
 layout_mode = 0
@@ -125,10 +126,11 @@ planet_to_load = "res://Corpos/sol.tscn"
 
 [node name="Deleter" parent="MineToolbar" instance=ExtResource("11_6yqv2")]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 11.0
 offset_top = 12.0
 offset_right = 60.0
-offset_bottom = 62.0
+offset_bottom = 60.0
+texture = ExtResource("12_i5dud")
 
 [node name="AnalyticPause" type="Control" parent="."]
 process_mode = 3

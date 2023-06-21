@@ -3,15 +3,16 @@
 [ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_5ikb5"]
 [ext_resource type="Texture2D" uid="uid://b8lhsxyuqlyvu" path="res://media/moon.jpg" id="2_d08nk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rj6uv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_diiyv"]
 albedo_texture = ExtResource("2_d08nk")
 
 [sub_resource type="SphereMesh" id="SphereMesh_13j2u"]
-material = SubResource("StandardMaterial3D_rj6uv")
+material = SubResource("StandardMaterial3D_diiyv")
 radius = 0.25
 height = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fl5sd"]
+radius = 0.25
 
 [node name="moon" type="RigidBody3D"]
 script = ExtResource("1_5ikb5")

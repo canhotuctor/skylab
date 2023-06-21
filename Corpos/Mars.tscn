@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dch0n8nyb3h5o"]
+
+[ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_k7ms4"]
+[ext_resource type="Texture2D" uid="uid://buol5lf3062rm" path="res://media/mars.jpg" id="2_o7wpw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjm1o"]
+albedo_texture = ExtResource("2_o7wpw")
+
+[sub_resource type="SphereMesh" id="SphereMesh_3p77u"]
+material = SubResource("StandardMaterial3D_hjm1o")
+radius = 0.33
+height = 0.66
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ks40"]
+radius = 0.33
+
+[node name="Mars" type="RigidBody3D"]
+script = ExtResource("1_k7ms4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3p77u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0ks40")
