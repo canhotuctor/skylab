@@ -15,8 +15,8 @@ func _input(event):
 				if(pauseButton.paused == false):
 					# Dynamic instantiate
 					var planeta : GravityObject = load(planet_to_load).instantiate()
-					planeta.position = camera.project_position(get_viewport().get_mouse_position(), 10) 
-					planeta.linear_velocity = (camera.project_position(Input.get_last_mouse_velocity(), 10) - camera.project_position(Vector2.ZERO, 10))
+					planeta.position = camera.project_position(get_viewport().get_mouse_position(), camera.position.z) 
+					planeta.linear_velocity = (camera.project_position(Input.get_last_mouse_velocity(), camera.position.z) - camera.project_position(Vector2.ZERO, camera.position.z))
 					get_tree().current_scene.add_child(planeta)
 					planeta.owner = get_tree().current_scene #necessario para salvar posteriormente pela função PackedScene.pack()
 				else:
@@ -35,7 +35,7 @@ func _input(event):
 
 
 func _on_ok_pressed(pos, vel):
-	var planeta : GravityObject = load("res://Corpos/planeta1.tscn").instantiate()
+	var planeta : GravityObject = load(planet_to_load).instantiate()
 	planeta.position = pos
 	planeta.linear_velocity = vel
 	get_tree().current_scene.add_child(planeta)

@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://ct8ehhue4hwc7"]
+
+[ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_5svv8"]
+[ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="5_o4jja"]
+[ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="6_4hg7i"]
+[ext_resource type="PackedScene" uid="uid://ipi8k1mo6j1v" path="res://UI_source/dragrable.tscn" id="7_ctl44"]
+[ext_resource type="Texture2D" uid="uid://c4d8w0jm2s63m" path="res://icon.svg" id="8_mcquo"]
+[ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="9_kpoj5"]
+[ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="10_30lad"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
+panorama = ExtResource("5_o4jja")
+filter = false
+
+[sub_resource type="Sky" id="Sky_wiiuw"]
+sky_material = SubResource("PanoramaSkyMaterial_vcrrc")
+
+[sub_resource type="Environment" id="Environment_4foyh"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_wiiuw")
+ambient_light_source = 2
+ambient_light_color = Color(0.509804, 0.509804, 0.509804, 1)
+ambient_light_energy = 0.5
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+process_mode = 3
+transform = Transform3D(0.66262, 0.251238, -0.705559, 0, 0.942057, 0.335452, 0.748956, -0.222277, 0.624226, 0, 0, 0)
+script = ExtResource("1_5svv8")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4foyh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Interface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MineToolbar" type="TextureRect" parent="CanvasLayer/Interface"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -94.0
+offset_right = 351.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_4hg7i")
+
+[node name="DragNDropTest" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_ctl44")]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 12.0
+offset_right = 154.0
+offset_bottom = 62.0
+
+[node name="DragNDropTest2" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_ctl44")]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 12.0
+offset_right = 219.0
+offset_bottom = 62.0
+texture = ExtResource("8_mcquo")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="AnalyticPause" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("9_kpoj5")
+
+[node name="Pause Button" type="Button" parent="CanvasLayer/AnalyticPause"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_top = 12.0
+offset_right = -26.0
+offset_bottom = 43.0
+grow_horizontal = 0
+text = "Pause"
+
+[node name="SaveAndLoad" parent="CanvasLayer" instance=ExtResource("10_30lad")]
+
+[connection signal="pressed" from="CanvasLayer/AnalyticPause/Pause Button" to="CanvasLayer/AnalyticPause" method="_on_pause_button_pressed"]

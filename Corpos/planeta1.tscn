@@ -15,7 +15,6 @@ height = 2.0
 radius = 1.0
 
 [node name="Planeta1" type="RigidBody3D"]
-mass = 0.5
 linear_velocity = Vector3(0, 25, 0)
 script = ExtResource("1_6naoc")
 
