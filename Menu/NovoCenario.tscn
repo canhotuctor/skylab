@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfeiqryrdu0n2"]
+[gd_scene load_steps=7 format=3 uid="uid://bfeiqryrdu0n2"]
 
 [ext_resource type="Texture2D" uid="uid://bdbpjkk484kb0" path="res://UI_source/sceneSample1.jpeg" id="1_nb6xa"]
 [ext_resource type="Texture2D" uid="uid://jb7hhmrjs6w7" path="res://UI_source/sceneSample2.jpeg" id="1_tywnj"]
 [ext_resource type="Script" path="res://Menu/SampleScene.gd" id="2_5jqei"]
 [ext_resource type="Script" path="res://Menu/Button.gd" id="2_tjbyu"]
+[ext_resource type="Texture2D" uid="uid://bajvap24snq5t" path="res://UI_source/sceneSample4.jpeg" id="5_1tsem"]
 [ext_resource type="Texture2D" uid="uid://dd0cve8rwldh8" path="res://UI_source/sceneSample3.jpeg" id="5_nq5bx"]
 
 [node name="NovoCenario" type="Control"]
@@ -81,9 +82,10 @@ offset_right = 427.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("1_tywnj")
+icon = ExtResource("5_1tsem")
 expand_icon = true
 script = ExtResource("2_5jqei")
+scene = "res://Cenarios/Binario.tscn"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

@@ -14,9 +14,11 @@ size = Vector3(0.1, 0.1, 0.1)
 [node name="Satelite" type="RigidBody3D"]
 mass = 0.01
 can_sleep = false
+angular_velocity = Vector3(0.174533, 0.0872665, 0)
 script = ExtResource("1_qtu1b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = ExtResource("2_j08xw")
 surface_material_override/0 = SubResource("StandardMaterial3D_iw8yp")
 script = ExtResource("3_jd171")
