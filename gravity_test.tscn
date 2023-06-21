@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b88n08x7uxvvq"]
+[gd_scene load_steps=20 format=3 uid="uid://b88n08x7uxvvq"]
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_1bnp1"]
 [ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_4wllg"]
@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="11_1rkaj"]
 [ext_resource type="Texture2D" uid="uid://b2jqovris4txh" path="res://media/full-moon-clip-art-84132.png" id="11_cvw88"]
 [ext_resource type="Texture2D" uid="uid://dg6nsxk1a4jsw" path="res://media/mars.png" id="12_g1m6r"]
-[ext_resource type="PackedScene" uid="uid://72sv54vv1q20" path="res://satellite.tscn" id="16_0lqhr"]
-[ext_resource type="Script" path="res://satellite.gd" id="17_3vc15"]
+[ext_resource type="Texture2D" uid="uid://ce83xgpf6q1m5" path="res://satelite.png" id="14_cdwrn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
 panorama = ExtResource("6_o0ge0")
@@ -127,15 +126,6 @@ offset_bottom = 56.0
 texture = ExtResource("12_g1m6r")
 planet_to_load = "res://Corpos/sol.tscn"
 
-[node name="DragNDropTest6" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
-layout_mode = 0
-offset_left = 435.0
-offset_top = 12.0
-offset_right = 485.0
-offset_bottom = 62.0
-texture = ExtResource("8_dx00i")
-planet_to_load = "res://Corpos/sol.tscn"
-
 [node name="DragNDropTest7" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
 layout_mode = 0
 offset_left = 502.0
@@ -163,6 +153,15 @@ offset_bottom = 61.0
 texture = ExtResource("8_dx00i")
 planet_to_load = "res://Corpos/sol.tscn"
 
+[node name="DragNDropTest10" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 21.0
+offset_right = 486.0
+offset_bottom = 58.0
+texture = ExtResource("14_cdwrn")
+planet_to_load = "res://Corpos/Satelite.tscn"
+
 [node name="AnalyticPause" type="Control" parent="CanvasLayer"]
 process_mode = 3
 layout_mode = 3
@@ -187,9 +186,5 @@ grow_horizontal = 0
 text = "Pause"
 
 [node name="SaveAndLoad" parent="CanvasLayer" instance=ExtResource("11_1rkaj")]
-
-[node name="MeshInstance3D" parent="." instance=ExtResource("16_0lqhr")]
-transform = Transform3D(-0.000925739, 0, -0.000378164, 0, 0.001, 0, 0.000378164, 0, -0.000925739, -1.41991, 0, 3.83788)
-script = ExtResource("17_3vc15")
 
 [connection signal="pressed" from="CanvasLayer/AnalyticPause/Pause Button" to="CanvasLayer/AnalyticPause" method="_on_pause_button_pressed"]
