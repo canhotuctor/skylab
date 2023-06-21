@@ -3,7 +3,7 @@ extends RigidBody3D
 
 const gravity_group_name := "gravity_object"
 #const G := 6.6743 * pow(10,-11) # m³/kg*s²
-const G := 3600 * 24 * 6.6743 * pow(10,-5) # m³/Mg*day²
+const G := 3600 * 24 * 6.6743 * pow(10,-5) # m³/Gg*day*s
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

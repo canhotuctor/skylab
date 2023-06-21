@@ -12,7 +12,7 @@ height = 4.0
 radius = 1.0
 
 [node name="Sol" type="RigidBody3D"]
-mass = 1600.0
+mass = 8000.0
 angular_velocity = Vector3(0, 0.523599, 0)
 script = ExtResource("1_025fj")
 
@@ -23,5 +23,5 @@ mesh = SubResource("SphereMesh_24t8t")
 shape = SubResource("SphereShape3D_umsgl")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 16.0
+light_energy = 256.0
 omni_range = 100000.0

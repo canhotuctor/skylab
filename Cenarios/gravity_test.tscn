@@ -1,26 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://5r11ebopjwl5"]
+[gd_scene load_steps=11 format=3 uid="uid://5r11ebopjwl5"]
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_2o5ua"]
 [ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_304su"]
 [ext_resource type="PackedScene" uid="uid://c8yyn6e5cc28d" path="res://Corpos/planeta1.tscn" id="3_glk6k"]
 [ext_resource type="PackedScene" uid="uid://ghvabmhyuw15" path="res://Corpos/planeta2.tscn" id="4_wbo5c"]
 [ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="5_88pmm"]
+[ext_resource type="PackedScene" uid="uid://cqdyggi6gvs5x" path="res://Corpos/moon.tscn" id="5_scg83"]
 [ext_resource type="PackedScene" uid="uid://dj3g0d4yrt5og" path="res://UI_source/interface.tscn" id="6_05n58"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
 panorama = ExtResource("5_88pmm")
 filter = false
 
-[sub_resource type="Sky" id="Sky_wiiuw"]
+[sub_resource type="Sky" id="Sky_ep8rj"]
 sky_material = SubResource("PanoramaSkyMaterial_vcrrc")
 
 [sub_resource type="Environment" id="Environment_4foyh"]
 background_mode = 2
-background_energy_multiplier = 0.5
-sky = SubResource("Sky_wiiuw")
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_ep8rj")
 ambient_light_source = 2
-ambient_light_color = Color(0.509804, 0.509804, 0.509804, 1)
-ambient_light_energy = 0.5
+ambient_light_color = Color(0.439216, 0.439216, 0.439216, 1)
+ambient_light_energy = 2.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -31,17 +32,22 @@ script = ExtResource("1_2o5ua")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
+transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 100)
 
 [node name="Sol" parent="." instance=ExtResource("2_304su")]
+linear_velocity = Vector3(-0.128, -0.015, 0)
 
 [node name="GravityObject2" parent="." instance=ExtResource("3_glk6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200)
 linear_velocity = Vector3(15.19, 2.5, 0)
 
 [node name="GravityObject3" parent="." instance=ExtResource("4_wbo5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 75)
 linear_velocity = Vector3(24.8, -0.5, 0.3)
+
+[node name="moon" parent="." instance=ExtResource("5_scg83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 73)
+linear_velocity = Vector3(19.43, -0.5, 0.3)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4foyh")

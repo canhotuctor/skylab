@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfeiqryrdu0n2"]
+[gd_scene load_steps=6 format=3 uid="uid://bfeiqryrdu0n2"]
 
 [ext_resource type="Texture2D" uid="uid://bdbpjkk484kb0" path="res://UI_source/sceneSample1.jpeg" id="1_nb6xa"]
 [ext_resource type="Texture2D" uid="uid://jb7hhmrjs6w7" path="res://UI_source/sceneSample2.jpeg" id="1_tywnj"]
-[ext_resource type="Script" path="res://Menu/SampleScene1.gd" id="2_3wqar"]
+[ext_resource type="Script" path="res://Menu/SampleScene.gd" id="2_5jqei"]
 [ext_resource type="Script" path="res://Menu/Button.gd" id="2_tjbyu"]
-[ext_resource type="Script" path="res://Menu/SampleScene2.gd" id="4_h78qd"]
 [ext_resource type="Texture2D" uid="uid://dd0cve8rwldh8" path="res://UI_source/sceneSample3.jpeg" id="5_nq5bx"]
-[ext_resource type="Script" path="res://Menu/SampleScene3.gd" id="6_efelu"]
-[ext_resource type="Script" path="res://Menu/SampleScene4.gd" id="7_2jptr"]
 
 [node name="NovoCenario" type="Control"]
 layout_mode = 3
@@ -32,7 +29,8 @@ grow_horizontal = 2
 grow_vertical = 2
 icon = ExtResource("1_nb6xa")
 expand_icon = true
-script = ExtResource("2_3wqar")
+script = ExtResource("2_5jqei")
+scene = "res://Cenarios/default.tscn"
 
 [node name="SampleScene2" type="Button" parent="."]
 layout_mode = 1
@@ -49,7 +47,8 @@ grow_horizontal = 2
 grow_vertical = 2
 icon = ExtResource("1_tywnj")
 expand_icon = true
-script = ExtResource("4_h78qd")
+script = ExtResource("2_5jqei")
+scene = "res://Cenarios/gravity_test.tscn"
 
 [node name="SampleScene3" type="Button" parent="."]
 layout_mode = 1
@@ -66,7 +65,8 @@ grow_horizontal = 2
 grow_vertical = 2
 icon = ExtResource("5_nq5bx")
 expand_icon = true
-script = ExtResource("6_efelu")
+script = ExtResource("2_5jqei")
+scene = "res://Cenarios/eight.tscn"
 
 [node name="SampleScene4" type="Button" parent="."]
 layout_mode = 1
@@ -83,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 icon = ExtResource("1_tywnj")
 expand_icon = true
-script = ExtResource("7_2jptr")
+script = ExtResource("2_5jqei")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

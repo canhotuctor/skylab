@@ -4,20 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://dj3g0d4yrt5og" path="res://UI_source/interface.tscn" id="3_phj3o"]
 [ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="5_o4jja"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cnkvn"]
 panorama = ExtResource("5_o4jja")
 filter = false
 
 [sub_resource type="Sky" id="Sky_wiiuw"]
-sky_material = SubResource("PanoramaSkyMaterial_vcrrc")
+sky_material = SubResource("PanoramaSkyMaterial_cnkvn")
 
-[sub_resource type="Environment" id="Environment_4foyh"]
+[sub_resource type="Environment" id="Environment_2llob"]
 background_mode = 2
-background_energy_multiplier = 0.5
+background_energy_multiplier = 0.2
 sky = SubResource("Sky_wiiuw")
 ambient_light_source = 2
-ambient_light_color = Color(0.509804, 0.509804, 0.509804, 1)
-ambient_light_energy = 0.5
+ambient_light_color = Color(0.439216, 0.439216, 0.439216, 1)
+ambient_light_energy = 2.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -31,7 +31,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4foyh")
+environment = SubResource("Environment_2llob")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
