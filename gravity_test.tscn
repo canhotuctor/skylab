@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b88n08x7uxvvq"]
+[gd_scene load_steps=20 format=3 uid="uid://b88n08x7uxvvq"]
 
 [ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_1bnp1"]
 [ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_4wllg"]
@@ -8,8 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="7_b371w"]
 [ext_resource type="PackedScene" uid="uid://ipi8k1mo6j1v" path="res://UI_source/dragrable.tscn" id="7_tteq0"]
 [ext_resource type="Texture2D" uid="uid://c4d8w0jm2s63m" path="res://icon.svg" id="8_dx00i"]
+[ext_resource type="Texture2D" uid="uid://78eo1r84ayfl" path="res://media/Jupiter-PNG-HD-Image.png" id="8_mrx7d"]
+[ext_resource type="Texture2D" uid="uid://bm2pptd10o1vt" path="res://media/sun.png" id="9_huxwy"]
+[ext_resource type="Texture2D" uid="uid://bnuu4xahenxv0" path="res://media/earth-icon-vector-art.png" id="10_qjn5m"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="10_w81p2"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="11_1rkaj"]
+[ext_resource type="Texture2D" uid="uid://b2jqovris4txh" path="res://media/full-moon-clip-art-84132.png" id="11_cvw88"]
+[ext_resource type="Texture2D" uid="uid://dg6nsxk1a4jsw" path="res://media/mars.png" id="12_g1m6r"]
+[ext_resource type="PackedScene" uid="uid://72sv54vv1q20" path="res://satellite.tscn" id="16_0lqhr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcrrc"]
 panorama = ExtResource("6_o0ge0")
@@ -38,7 +44,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 30)
 
 [node name="Sol" parent="." instance=ExtResource("2_4wllg")]
-mass = 1600.0
 
 [node name="GravityObject2" parent="." instance=ExtResource("4_sg6rf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
@@ -69,27 +74,84 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -344.0
-offset_top = -94.0
-offset_right = 351.0
-offset_bottom = -23.0
+offset_left = -327.0
+offset_top = -100.0
+offset_right = 368.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("7_b371w")
 
 [node name="DragNDropTest" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 12.0
-offset_right = 154.0
-offset_bottom = 62.0
+offset_left = 174.0
+offset_top = 17.0
+offset_right = 215.0
+offset_bottom = 60.0
+texture = ExtResource("8_mrx7d")
 
 [node name="DragNDropTest2" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
 layout_mode = 0
-offset_left = 169.0
+offset_left = 106.0
+offset_top = 14.0
+offset_right = 152.0
+offset_bottom = 60.0
+texture = ExtResource("9_huxwy")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest3" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 244.0
+offset_top = 19.0
+offset_right = 280.0
+offset_bottom = 56.0
+texture = ExtResource("10_qjn5m")
+planet_to_load = "res://Corpos/planeta2.tscn"
+
+[node name="DragNDropTest4" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 378.0
+offset_top = 21.0
+offset_right = 409.0
+offset_bottom = 52.0
+texture = ExtResource("11_cvw88")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest5" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 308.0
+offset_top = 21.0
+offset_right = 346.0
+offset_bottom = 56.0
+texture = ExtResource("12_g1m6r")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest6" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 435.0
 offset_top = 12.0
-offset_right = 219.0
+offset_right = 485.0
 offset_bottom = 62.0
+texture = ExtResource("8_dx00i")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest7" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 502.0
+offset_top = 12.0
+offset_right = 552.0
+offset_bottom = 62.0
+texture = ExtResource("8_dx00i")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest8" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 567.0
+offset_top = 12.0
+offset_right = 617.0
+offset_bottom = 62.0
+texture = ExtResource("8_dx00i")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest9" parent="CanvasLayer/Interface/MineToolbar" instance=ExtResource("7_tteq0")]
+offset_left = 634.0
+offset_top = 11.0
+offset_right = 684.0
+offset_bottom = 61.0
 texture = ExtResource("8_dx00i")
 planet_to_load = "res://Corpos/sol.tscn"
 
@@ -117,5 +179,7 @@ grow_horizontal = 0
 text = "Pause"
 
 [node name="SaveAndLoad" parent="CanvasLayer" instance=ExtResource("11_1rkaj")]
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("16_0lqhr")]
 
 [connection signal="pressed" from="CanvasLayer/AnalyticPause/Pause Button" to="CanvasLayer/AnalyticPause" method="_on_pause_button_pressed"]

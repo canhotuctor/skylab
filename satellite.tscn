@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://72sv54vv1q20"]
+
+[ext_resource type="ArrayMesh" uid="uid://ddxuqihxh0rwt" path="res://UI_source/10477_Satellite_v1_L3.obj" id="1_buk0n"]
+[ext_resource type="Texture2D" uid="uid://cwvepjfe0847i" path="res://UI_source/10477_Satellite_v1_Diffuse.jpg" id="2_dhnaa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u547w"]
+albedo_texture = ExtResource("2_dhnaa")
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = ExtResource("1_buk0n")
+surface_material_override/0 = SubResource("StandardMaterial3D_u547w")
