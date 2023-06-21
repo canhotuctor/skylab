@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpomwl56g8js4"]
+[gd_scene load_steps=3 format=3 uid="uid://cpomwl56g8js4"]
 
+[ext_resource type="Script" path="res://SaveAndLoad/releasefocus.gd" id="1_1fncp"]
 [ext_resource type="Script" path="res://SaveAndLoad/SaveAndLoad.gd" id="1_dd3uh"]
 
 [node name="SaveAndLoad" type="Control"]
@@ -34,6 +35,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 placeholder_text = "File name"
+clear_button_enabled = true
+script = ExtResource("1_1fncp")
 
 [node name="EraseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2

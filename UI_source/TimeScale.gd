@@ -7,6 +7,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	Engine.time_scale = 2**value
 	texto.text = "Time Scale: " + str(2**value)

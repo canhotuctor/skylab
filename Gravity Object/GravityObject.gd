@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var gravity_list := get_tree().get_nodes_in_group(gravity_group_name)
 	for body in gravity_list:
 		if self != body:
