@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Skylab"
-run/main_scene="res://Menu/MenuInicial.tscn"
+run/main_scene="res://Cenarios/MenuInicial.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/resizable=false
 
 [input]
 
@@ -80,3 +79,8 @@ common/max_physics_steps_per_frame=100
 3d/default_gravity_vector=Vector3(0, 0, 0)
 3d/default_linear_damp=0.0
 3d/default_angular_damp=0.0
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2
+anti_aliasing/quality/screen_space_aa=1

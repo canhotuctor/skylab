@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqllelm5shw4o"]
+
+[ext_resource type="Script" path="res://Menu/NovoCenario.gd" id="1_5f63m"]
+[ext_resource type="Script" path="res://Menu/Sair.gd" id="2_i7701"]
+
+[node name="BotoesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NovoCenario" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 292.0
+offset_top = -225.0
+offset_right = 481.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Novo Cenário"
+script = ExtResource("1_5f63m")
+
+[node name="Sair" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 343.0
+offset_top = -44.0
+offset_right = 531.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sair"
+script = ExtResource("2_i7701")
+
+[connection signal="pressed" from="NovoCenario" to="NovoCenario" method="_on_pressed"]
+[connection signal="pressed" from="Sair" to="Sair" method="_on_pressed"]
