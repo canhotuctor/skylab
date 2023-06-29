@@ -12,13 +12,17 @@ func _input(event):
 		dragging = (event.pressed and mouseInside)
 		if(not dragging):
 			if(position.distance_to(initialPosition) > dragMinDist):
-				if(pauseButton.paused == false):
+				if(get_tree().paused == false):
 					# Dynamic instantiate
 					var planeta : GravityObject = load(planet_to_load).instantiate()
 					planeta.position = camera.project_position(get_viewport().get_mouse_position(), camera.position.z) 
 					planeta.linear_velocity = (camera.project_position(Input.get_last_mouse_velocity(), camera.position.z) - camera.project_position(Vector2.ZERO, camera.position.z))
 					get_tree().current_scene.add_child(planeta)
 					planeta.owner = get_tree().current_scene #necessario para salvar posteriormente pela função PackedScene.pack()
+					
+					var pop_sound = load("res://Audio/pop_sound.tscn").instantiate()
+					planeta.add_child(pop_sound)
+					pop_sound.owner = planeta.owner
 				else:
 					# Analytic instantiate:
 					var janela : InstantiateWindow = load("res://Janelinhas/InstantiateWindow.tscn").instantiate()

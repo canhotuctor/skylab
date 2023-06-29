@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dd0cve8rwldh8" path="res://UI_source/sceneSample3.jpeg" id="5_nq5bx"]
 
 [node name="NovoCenario" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
