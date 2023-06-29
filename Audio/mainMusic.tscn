@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7jugstok8xeo"]
+
+[ext_resource type="AudioStream" uid="uid://b7djbg816tfak" path="res://Audio/musicaSkylab.mp3" id="1_duxy6"]
+
+[node name="Node" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_duxy6")
+autoplay = true
