@@ -14,7 +14,7 @@ config/name="Skylab"
 run/main_scene="res://Cenarios/MenuInicial.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://bufo.png"
 
 [autoload]
 
