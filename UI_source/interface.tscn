@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b2jqovris4txh" path="res://media/full-moon-clip-art-84132.png" id="7_btvs2"]
 [ext_resource type="Texture2D" uid="uid://dg6nsxk1a4jsw" path="res://media/mars.png" id="8_cnna6"]
 [ext_resource type="Texture2D" uid="uid://ce83xgpf6q1m5" path="res://satelite.png" id="9_h534v"]
-[ext_resource type="PackedScene" uid="uid://joj7wnlo5n30" path="res://UI_source/deleter.tscn" id="11_6yqv2"]
+[ext_resource type="PackedScene" path="res://UI_source/deleter.tscn" id="11_6yqv2"]
 [ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="12_cqf1f"]
 [ext_resource type="Texture2D" uid="uid://betnlyoxqg8x7" path="res://UI_source/sairpng.png" id="12_i5dud"]
 [ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="13_eff2y"]
