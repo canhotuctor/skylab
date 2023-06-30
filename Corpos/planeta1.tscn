@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8yyn6e5cc28d"]
+
+[ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_6naoc"]
+[ext_resource type="Texture2D" uid="uid://dwelislbr7bsa" path="res://media/Gaseous4.png" id="2_qjed6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pro50"]
+albedo_texture = ExtResource("2_qjed6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6jh0u"]
+material = SubResource("StandardMaterial3D_pro50")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
+radius = 1.0
+
+[node name="Planeta1" type="RigidBody3D"]
+mass = 50.0
+linear_velocity = Vector3(0, 25, 0)
+angular_velocity = Vector3(0, 0.349066, 0)
+script = ExtResource("1_6naoc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6jh0u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_c0nvr")

@@ -1,0 +1,181 @@
+[gd_scene load_steps=17 format=3 uid="uid://dj3g0d4yrt5og"]
+
+[ext_resource type="Script" path="res://Interface.gd" id="1_atktd"]
+[ext_resource type="Texture2D" uid="uid://u816heplxqi4" path="res://UI_source/minecraft_toolbar.png" id="2_t8oau"]
+[ext_resource type="PackedScene" uid="uid://ipi8k1mo6j1v" path="res://UI_source/dragrable.tscn" id="3_qgboe"]
+[ext_resource type="Texture2D" uid="uid://78eo1r84ayfl" path="res://media/Jupiter-PNG-HD-Image.png" id="4_e3lnj"]
+[ext_resource type="Texture2D" uid="uid://bm2pptd10o1vt" path="res://media/sun.png" id="5_clvds"]
+[ext_resource type="Texture2D" uid="uid://bnuu4xahenxv0" path="res://media/earth-icon-vector-art.png" id="6_ybjk4"]
+[ext_resource type="Texture2D" uid="uid://b2jqovris4txh" path="res://media/full-moon-clip-art-84132.png" id="7_btvs2"]
+[ext_resource type="Texture2D" uid="uid://dg6nsxk1a4jsw" path="res://media/mars.png" id="8_cnna6"]
+[ext_resource type="Texture2D" uid="uid://ce83xgpf6q1m5" path="res://satelite.png" id="9_h534v"]
+[ext_resource type="PackedScene" path="res://UI_source/deleter.tscn" id="11_6yqv2"]
+[ext_resource type="Script" path="res://Gravity Object/AnalyticPause.gd" id="12_cqf1f"]
+[ext_resource type="Texture2D" uid="uid://betnlyoxqg8x7" path="res://UI_source/sairpng.png" id="12_i5dud"]
+[ext_resource type="PackedScene" uid="uid://cpomwl56g8js4" path="res://SaveAndLoad/SaveAndLoad.tscn" id="13_eff2y"]
+[ext_resource type="Script" path="res://UI_source/TimeScale.gd" id="14_ivtp7"]
+[ext_resource type="Script" path="res://UI_source/FPS.gd" id="16_5bpiu"]
+[ext_resource type="Script" path="res://UI_source/MainMenuButton.gd" id="16_7vrys"]
+
+[node name="Interface" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_atktd")
+
+[node name="MineToolbar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -347.5
+offset_top = -87.0
+offset_right = 347.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_t8oau")
+
+[node name="DragNDropTest" parent="MineToolbar" instance=ExtResource("3_qgboe")]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 17.0
+offset_right = 215.0
+offset_bottom = 60.0
+texture = ExtResource("4_e3lnj")
+
+[node name="DragNDropTest2" parent="MineToolbar" instance=ExtResource("3_qgboe")]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 14.0
+offset_right = 152.0
+offset_bottom = 60.0
+texture = ExtResource("5_clvds")
+planet_to_load = "res://Corpos/sol.tscn"
+
+[node name="DragNDropTest3" parent="MineToolbar" instance=ExtResource("3_qgboe")]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 19.0
+offset_right = 280.0
+offset_bottom = 56.0
+texture = ExtResource("6_ybjk4")
+planet_to_load = "res://Corpos/planeta2.tscn"
+
+[node name="DragNDropTest4" parent="MineToolbar" instance=ExtResource("3_qgboe")]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 21.0
+offset_right = 409.0
+offset_bottom = 52.0
+texture = ExtResource("7_btvs2")
+planet_to_load = "res://Corpos/moon.tscn"
+
+[node name="DragNDropTest5" parent="MineToolbar" instance=ExtResource("3_qgboe")]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 21.0
+offset_right = 346.0
+offset_bottom = 56.0
+texture = ExtResource("8_cnna6")
+planet_to_load = "res://Corpos/Mars.tscn"
+
+[node name="DragNDropTest6" parent="MineToolbar" instance=ExtResource("3_qgboe")]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 22.0
+offset_right = 485.0
+offset_bottom = 54.0
+texture = ExtResource("9_h534v")
+planet_to_load = "res://Corpos/Satelite.tscn"
+
+[node name="Deleter" parent="MineToolbar" instance=ExtResource("11_6yqv2")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 60.0
+offset_bottom = 60.0
+texture = ExtResource("12_i5dud")
+
+[node name="AnalyticPause" type="HBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -195.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 43.0
+grow_horizontal = 0
+theme_override_constants/separation = 24
+script = ExtResource("12_cqf1f")
+
+[node name="TimeScale" type="HSlider" parent="AnalyticPause"]
+custom_minimum_size = Vector2(121, 28)
+layout_mode = 2
+focus_mode = 0
+min_value = -4.0
+max_value = 4.0
+tick_count = 9
+ticks_on_borders = true
+script = ExtResource("14_ivtp7")
+
+[node name="Label" type="Label" parent="AnalyticPause/TimeScale"]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 87.0
+offset_bottom = 54.0
+text = "Time Scale: "
+
+[node name="Pause Button" type="Button" parent="AnalyticPause"]
+custom_minimum_size = Vector2(77, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Pause"
+
+[node name="SaveAndLoad" parent="." instance=ExtResource("13_eff2y")]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 303.0
+offset_bottom = 403.0
+
+[node name="FPS" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -26.0
+offset_right = 31.0
+grow_vertical = 0
+text = "FPS"
+script = ExtResource("16_5bpiu")
+
+[node name="MainMenuButton" type="Button" parent="."]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -42.0
+offset_right = -13.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Main Menu"
+script = ExtResource("16_7vrys")
+
+[connection signal="pressed" from="AnalyticPause/Pause Button" to="AnalyticPause" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]

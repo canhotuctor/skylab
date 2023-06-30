@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://joj7wnlo5n30"]
+
+[ext_resource type="Texture2D" uid="uid://c4d8w0jm2s63m" path="res://icon.svg" id="1_oxta4"]
+[ext_resource type="Script" path="res://UI_source/deleter.gd" id="2_xtbx3"]
+
+[node name="Deleter" type="TextureRect"]
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_oxta4")
+expand_mode = 1
+script = ExtResource("2_xtbx3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

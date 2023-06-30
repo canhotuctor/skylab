@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ipi8k1mo6j1v"]
+
+[ext_resource type="Texture2D" uid="uid://dodcvc066alkq" path="res://UI_source/jupiter.png" id="1_ybywn"]
+[ext_resource type="Script" path="res://UI_source/DragNDropTest.gd" id="2_60l0b"]
+
+[node name="DragNDropTest" type="TextureRect"]
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_ybywn")
+expand_mode = 1
+script = ExtResource("2_60l0b")
+planet_to_load = "res://Corpos/planeta1.tscn"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhpud7dg17mq7"]
+
+[ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_362ud"]
+[ext_resource type="Material" uid="uid://be7um6c7rbo36" path="res://media/ballShader.tres" id="2_goynx"]
+[ext_resource type="Texture2D" uid="uid://dnwmml0mcvj2d" path="res://media/earthHeight.jpg" id="3_tih60"]
+[ext_resource type="Texture2D" uid="uid://c8d2kwa7335rm" path="res://media/earth1.jpg" id="4_wlw5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5b80"]
+albedo_texture = ExtResource("4_wlw5t")
+metallic_specular = 0.0
+roughness_texture = ExtResource("4_wlw5t")
+roughness_texture_channel = 1
+normal_scale = -1.16
+normal_texture = ExtResource("3_tih60")
+heightmap_enabled = true
+heightmap_scale = 0.2
+heightmap_flip_tangent = true
+heightmap_flip_binormal = true
+heightmap_texture = ExtResource("3_tih60")
+refraction_texture = ExtResource("3_tih60")
+
+[sub_resource type="SphereMesh" id="SphereMesh_1vphk"]
+material = ExtResource("2_goynx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c0nvr"]
+
+[node name="GravityObject3" type="RigidBody3D"]
+mass = 10.0
+linear_velocity = Vector3(6, -2, 0)
+angular_velocity = Vector3(0, 6.28319, 0)
+script = ExtResource("1_362ud")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_y5b80")
+mesh = SubResource("SphereMesh_1vphk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_c0nvr")

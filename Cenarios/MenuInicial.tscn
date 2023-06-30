@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c56f63cyvfpif"]
+
+[ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="2_gs426"]
+[ext_resource type="Script" path="res://Gravity Object/CameraPivot2.gd" id="2_lpasa"]
+[ext_resource type="PackedScene" uid="uid://dqllelm5shw4o" path="res://Menu/BotoesMenu.tscn" id="4_6ffpr"]
+[ext_resource type="PackedScene" uid="uid://dhpud7dg17mq7" path="res://Corpos/planeta3.tscn" id="5_gp7lu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cnkvn"]
+panorama = ExtResource("2_gs426")
+filter = false
+
+[sub_resource type="Sky" id="Sky_wiiuw"]
+sky_material = SubResource("PanoramaSkyMaterial_cnkvn")
+
+[sub_resource type="Environment" id="Environment_2llob"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_wiiuw")
+ambient_light_source = 2
+ambient_light_color = Color(0.439216, 0.439216, 0.439216, 1)
+ambient_light_energy = 2.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+process_mode = 3
+transform = Transform3D(0.66262, 0.251238, -0.705559, 0, 0.942057, 0.335451, 0.748956, -0.222277, 0.624226, 0, 0, 0)
+script = ExtResource("2_lpasa")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, -2.32831e-10, 0, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0.3, 0.05, 0.8)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2llob")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="BotoesMenu" parent="CanvasLayer" instance=ExtResource("4_6ffpr")]
+
+[node name="Planeta" parent="." instance=ExtResource("5_gp7lu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0667801, 0.0344267, -0.0562553)
+linear_velocity = Vector3(0, 0, 0)
+angular_velocity = Vector3(0, 0.698132, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335086, 0.90556, 1.15374)
+omni_range = 10.2
+omni_attenuation = 3.4822

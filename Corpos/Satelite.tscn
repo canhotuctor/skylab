@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsh5e1t3v8kja"]
+
+[ext_resource type="Script" path="res://Gravity Object/GravityObject.gd" id="1_qtu1b"]
+[ext_resource type="ArrayMesh" uid="uid://ddxuqihxh0rwt" path="res://UI_source/10477_Satellite_v1_L3.obj" id="2_j08xw"]
+[ext_resource type="Texture2D" uid="uid://cwvepjfe0847i" path="res://UI_source/10477_Satellite_v1_Diffuse.jpg" id="3_78r1l"]
+[ext_resource type="Script" path="res://satellite.gd" id="3_jd171"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw8yp"]
+albedo_texture = ExtResource("3_78r1l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_514ys"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Satelite" type="RigidBody3D"]
+mass = 0.01
+can_sleep = false
+angular_velocity = Vector3(0.174533, 0.0872665, 0)
+script = ExtResource("1_qtu1b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_j08xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_iw8yp")
+script = ExtResource("3_jd171")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_514ys")

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cqrx88mgexy55"]
+
+[ext_resource type="Texture2D" uid="uid://o45g13wo0h7x" path="res://media/sun.jpg" id="1_pwyhr"]
+
+[resource]
+albedo_color = Color(0.992157, 0.72549, 0.176471, 1)
+albedo_texture = ExtResource("1_pwyhr")
+emission_enabled = true
+emission_texture = ExtResource("1_pwyhr")

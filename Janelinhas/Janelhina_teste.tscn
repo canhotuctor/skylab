@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1pvehful1tju"]
+
+[ext_resource type="PackedScene" uid="uid://3b02l864c76k" path="res://Janelinhas/InstantiateWindow.tscn" id="1_b2uw1"]
+
+[node name="Node" type="Node"]
+
+[node name="Window" parent="." instance=ExtResource("1_b2uw1")]

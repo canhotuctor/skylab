@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmgkcvolyt1vj"]
+
+[ext_resource type="AudioStream" uid="uid://dltlq1src1x4j" path="res://Audio/pop.mp3" id="1_rfstu"]
+
+[node name="PopSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_rfstu")
+autoplay = true

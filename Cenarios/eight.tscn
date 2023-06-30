@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://rswxv675mih"]
+
+[ext_resource type="Script" path="res://Gravity Object/CameraPivot.gd" id="1_rg52q"]
+[ext_resource type="Texture2D" uid="uid://cafjpri876dco" path="res://media/SpaceSkyMap.png" id="2_adx5h"]
+[ext_resource type="PackedScene" uid="uid://dksa8p1sbkj5j" path="res://Corpos/sol.tscn" id="2_ldxli"]
+[ext_resource type="PackedScene" uid="uid://dj3g0d4yrt5og" path="res://UI_source/interface.tscn" id="4_6diw0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6omy2"]
+panorama = ExtResource("2_adx5h")
+filter = false
+
+[sub_resource type="Sky" id="Sky_6sd0u"]
+sky_material = SubResource("PanoramaSkyMaterial_6omy2")
+
+[sub_resource type="Environment" id="Environment_vsswx"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_6sd0u")
+ambient_light_source = 2
+ambient_light_color = Color(0.439216, 0.439216, 0.439216, 1)
+ambient_light_energy = 2.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+process_mode = 3
+script = ExtResource("1_rg52q")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, -2.77557e-17, 1.86265e-09, 0, 1, 1.49012e-08, -1.86265e-09, -1.49012e-08, 1, 0, 0, 100)
+
+[node name="Sol" parent="." instance=ExtResource("2_ldxli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97, 24.31, 0)
+linear_velocity = Vector3(10.012, 9.288, 0)
+
+[node name="Sol2" parent="." instance=ExtResource("2_ldxli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97, -24.31, 0)
+linear_velocity = Vector3(10.012, 9.288, 0)
+
+[node name="Sol3" parent="." instance=ExtResource("2_ldxli")]
+linear_velocity = Vector3(-20.028, -18.572, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vsswx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Interface" parent="CanvasLayer" instance=ExtResource("4_6diw0")]
